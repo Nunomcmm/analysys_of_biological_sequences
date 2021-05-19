@@ -24,8 +24,10 @@ python homework1_asb.py nucleotide "castella castella" 40
 
 ## Homework 2
 
-Write a small python script that converts FASTA to Leave NEXUS
+Write a small python script that converts FASTA to Leave NEXUS.
+
 Conditions:
+
     It must take a FASTA file as input
     As an argument
     Or from STDIN
