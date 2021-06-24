@@ -85,8 +85,14 @@ To get analysis from ipyrad, run Script2.<br>
 ~~~ Shell script
 bash Script2_Assignment2
 ~~~
-You need RAxML and MrBayes to perform your run of Script3.<br>
+For building the trees, you need RAxML and MrBayes to perform your run of Script3.<br>
 
 ~~~ Shell script
 bash Script3_Assignment2
 ~~~
+
+When doing the analyses of principal components use the following code: <br>
+
+ ~~~ Shell script
+ rstudio Cornales.R
+ ~~~
