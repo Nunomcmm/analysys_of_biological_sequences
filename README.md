@@ -22,7 +22,7 @@ Example:
 python homework1_asb.py nucleotide "castella castella" 40
 ~~~
 
-## Homework 2
+# Homework 2
 
 Write a small python script that converts FASTA to Leave NEXUS.
 
@@ -48,4 +48,45 @@ python homework2_asb.py file.fasta outgroup ngen
 Example:
 ~~~ Shell script
 python homework2_asb.py example.fasta vulgaris 4000
+~~~
+
+# Assignment 2
+
+Your Task:
+
+    Figure out if the data has the resolution to distinguish between Pungent and Bland individuals.
+    What groups can you identify?
+    Write a report on what you did to try to answer that question;
+    Keep in mind that your are not analysing a full dataset, but rather a heavily down-sampled subset.
+
+In detail:
+
+    Write an introduction section describing the sequencing method you are working with;
+    Highlight the importance of HTS data on being able to perform the task you are resolving;
+    Make sure you have a Materials & Methods section where you detail how your analyses were performed;
+    Do not forget to describe the dataset as best you can!
+    Include a results section where you describe the results you have obtained;
+    Interpret the results in a biological context in the Discussion section;
+    Optionally, finish with a conclusion section if you think it makes sense in your specific case;
+
+## Getting Started
+
+To run it is necessary to make it executable, using the following code: <br>
+~~~ Shell script
+chmod +x scriptname
+~~~
+
+If you don't have anaconda installed, run Script1 available in Assignment2_Anexos.<br>
+~~~ Shell script
+bash Script1_Assignment2
+~~~
+
+To get analysis from ipyrad, run Script2.<br>
+~~~ Shell script
+bash Script2_Assignment2
+~~~
+You need RAxML and MrBayes to perform your run of Script3.<br>
+
+~~~ Shell script
+bash Script3_Assignment2
 ~~~

@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#Adicionar conda-forge channel
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+
+#Criar e ativar um novo ambiente do conda
+conda create -n ipyrad
+conda activate ipyrad
+
+#Instalar o ipyrad
+conda install ipyrad -c conda-forge -c bioconda
+
+#Aceder ao diretório home
+cd ~
+
+#Criar um diretório ipyrad-assembly
+mkdir ipyrad-assembly
+
+#Aceder ao diretório ipyrad-assembly
+cd ipyrad-assembly
+
+#Criar um diretório para guardar os ficheiros
+mkdir cornalesdata
+
+#Instalar o git
+sudo apt get install git
+
+#Clonar os arquivos do repositório
+git clone https://gitlab.com/StuntsPT/small_test_dataset.git
+
+#Aceder ao diretório 
+cd small_test_dataset/Cornales
+
+#Mover os ficheiros necessários para um diretório diferente
+mv Cornales_R* ~/ipyrad-assembly/cornalesdata
+
+#Aceder ao diretório 
+cd ~/ipyrad-assembly/cornalesdata
+
+#Descarregar ficheiro dos barcodes
+wget https://raw.githubusercontent.com/Nunomcmm/analysys_of_biological_sequences/master/Assignment2_Anexos/Cornales.barcodes
+
+#Instalar o xz-utils
+sudo apt-get install xz-utils
+
+#Descomprimir os ficheiros
+unxz Cornales_R1.fastq.xz
+unxz Cornales_R2.fastq.xz
+
+#Descarregar ficheiro params-cornales.txt modificado e ficheiro para executar o MrBayes.
+cd ~/ipyrad-assembly 
+wget https://raw.githubusercontent.com/Nunomcmm/analysys_of_biological_sequences/master/Assignment2_Anexos/params-cornales.txt
+
+# -p indicar o ficheiro que se vai utilizar -s número da corrida -c número de cores alocados
+ipyrad -p params-cornales.txt -s 1 -c 3
+ipyrad -p params-cornales.txt -s 2 -c 3
+ipyrad -p params-cornales.txt -s 3 -c 3
+ipyrad -p params-cornales.txt -s 4 -c 3
+ipyrad -p params-cornales.txt -s 5 -c 3
+ipyrad -p params-cornales.txt -s 6 -c 3
+ipyrad -p params-cornales.txt -s 7 -c 3
+
+
+
+
+
+
