@@ -8,22 +8,32 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 
 
 BiocManager::install("LEA")
+
 library(pcaMethods)
 library(LEA)
 
 #O package LEA, usado para poder carregar ficheiros geno e instalado, e carregado junto do pcaMethods com a funcao library.
 
 corn_data = read.geno("cornales.geno")
+
 View(corn_data)
 #O ficheiro geno e carregado.
 #O ficheiro geno contem a matriz do genotipo, os individuos estao dispostos da esquerda para a direita, enquanto que as posicoes dos SNP estao dispostas de cima para baixo.
 
-cores<-rep(c("4","2"),times=c(48,2))
-types<-rep(c("bland","pungent"),times=c(48,2))
-
+cores<-rep(c(4), times=c(90))
+types<-rep(c("bland","pungent"),times=c(88,2))
+print(types)
 #Estes vetores sao usados na funcao legend.
 
-corn_pca=pcaMethods::pca(corn_data, scale="none", center=T, nPcs = 2, method="nipals")
+corn_data1 = replace(corn_data,corn_data==9, NA)
+View(corn_data1)
+corn_data2 = corn_data1[rowSums(is.na(corn_data1))!=ncol(corn_data1), ]
+
+cores[86]=2
+cores[85]=2
+print(cores)
+
+corn_pca=pcaMethods::pca(corn_data2, scale="none", center=T, nPcs = 2, method="nipals")
 slplot(corn_pca,
        scol=cores,
        scoresLoadings=c(TRUE, FALSE),
