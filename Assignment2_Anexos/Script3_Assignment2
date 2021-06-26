@@ -10,4 +10,4 @@ wget https://raw.githubusercontent.com/Nunomcmm/analysys_of_biological_sequences
 raxmlHPC-PTHREADS-AVX -f a -s cornales.phy -m GTRGAMMA -x 2525 -p 2525 -N 100 -n Cornales_ML
 
 #Fazer uma árvore de BI utilizando o MrBayes
-mb cornales.nex cornales_mb
+mb cornales.nex MB_cornales
