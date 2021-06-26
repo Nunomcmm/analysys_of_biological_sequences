@@ -25,13 +25,19 @@ types<-rep(c("bland","pungent"),times=c(88,2))
 print(types)
 #Estes vetores sao usados na funcao legend.
 
+
 corn_data1 = replace(corn_data,corn_data==9, NA)
+#Substitui todos os valores 9 por NA
+
 View(corn_data1)
+#Visualizar o dataframe
+
 corn_data2 = corn_data1[rowSums(is.na(corn_data1))!=ncol(corn_data1), ]
+#Remove todas as linhas que só contêm NA's
 
 cores[86]=2
 cores[85]=2
-print(cores)
+#Atribui-se aos pungent o valor 2
 
 corn_pca=pcaMethods::pca(corn_data2, scale="none", center=T, nPcs = 2, method="nipals")
 slplot(corn_pca,
@@ -62,6 +68,6 @@ legend("bottomright",
 
 library(data.table)
 print(corn_pca@R2)
-
+#Mostra o R2
 
 
